@@ -1,13 +1,14 @@
-import { type Message as TMessage } from "ai";
-import Message from "./Message";
+import { type Message as TMessage } from "ai/react";
+import { Message } from "./Message";
 import { MessageSquare } from "lucide-react";
+
 interface MessagesProps {
 	messages: TMessage[];
 }
 
-const Messages = ({ messages }: MessagesProps) => {
+export const Messages = ({ messages }: MessagesProps) => {
 	return (
-		<div className="flex mx-h-[calc(100vh-3.5rem-7rem)] flex-1 flex-col overflow-y-auto">
+		<div className="flex max-h-[calc(100vh-3.5rem-7rem)] flex-1 flex-col overflow-y-auto">
 			{messages.length ? (
 				messages.map((message, i) => (
 					<Message
@@ -17,7 +18,7 @@ const Messages = ({ messages }: MessagesProps) => {
 					/>
 				))
 			) : (
-				<div className="flex-1 flex flex-col justify-center items-center gap-2">
+				<div className="flex-1 flex flex-col items-center justify-center gap-2">
 					<MessageSquare className="size-8 text-blue-500" />
 					<h3 className="font-semibold text-xl text-white">
 						You're all set!
@@ -30,5 +31,3 @@ const Messages = ({ messages }: MessagesProps) => {
 		</div>
 	);
 };
-
-export default Messages;
