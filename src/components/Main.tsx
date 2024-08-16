@@ -3,6 +3,7 @@
 import { Button } from "@nextui-org/react";
 import { CopyIcon, Link2 } from "lucide-react";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function LandingPage() {
 	return (
@@ -38,6 +39,13 @@ function Hero() {
 }
 
 function HowItWorks() {
+	const [url, setUrl] = useState("");
+
+	useEffect(() => {
+		// This will only run on the client side
+		setUrl(window.location.href.replace("http://", ""));
+	}, []);
+
 	return (
 		<section className="w-full py-20 bg-gray-50">
 			<div className="container px-4 md:px-6 mx-auto">
@@ -79,22 +87,12 @@ function HowItWorks() {
 						<div className="w-full flex justify-between items-center">
 							<div className="flex items-center gap-2 overflow-hidden">
 								<Link2 className="h-6 w-6 text-gray-900" />
-								<span className="text-gray-900">
-									{window.location.href.replace(
-										"http://",
-										""
-									)}
-								</span>
+								<span className="text-gray-900">{url}</span>
 							</div>
 							<button
 								className="text-gray-500 hover:text-gray-700 transition-all"
 								onClick={() =>
-									navigator.clipboard.writeText(
-										window.location.href.replace(
-											"http://",
-											""
-										)
-									)
+									navigator.clipboard.writeText(url)
 								}
 							>
 								<CopyIcon className="h-6 w-6" />
