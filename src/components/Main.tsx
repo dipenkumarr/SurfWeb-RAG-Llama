@@ -80,14 +80,20 @@ function HowItWorks() {
 							<div className="flex items-center gap-2 overflow-hidden">
 								<Link2 className="h-6 w-6 text-gray-900" />
 								<span className="text-gray-900">
-									{window.location.href}
+									{window.location.href.replace(
+										"http://",
+										""
+									)}
 								</span>
 							</div>
 							<button
 								className="text-gray-500 hover:text-gray-700 transition-all"
 								onClick={() =>
 									navigator.clipboard.writeText(
-										window.location.href
+										window.location.href.replace(
+											"http://",
+											""
+										)
 									)
 								}
 							>
