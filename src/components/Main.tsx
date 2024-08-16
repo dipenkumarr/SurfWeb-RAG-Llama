@@ -29,7 +29,7 @@ function Hero() {
 					</h1>
 					<p className="mx-auto max-w-[700px] text-xl text-white/80 md:text-2xl">
 						This web application allows you to chat with any
-						website, no matter what it's built on.
+						website, no matter what it&apos;s built on.
 					</p>
 				</div>
 			</div>
@@ -70,7 +70,7 @@ function HowItWorks() {
 							<WebcamIcon className="h-16 w-16 text-purple-600" />
 						}
 						title="3. Chat & Interact"
-						description="Ask questions and interact with the website's content in real-time."
+						description="Ask questions and interact with the website&#39;s content in real-time."
 					/>
 				</div>
 
